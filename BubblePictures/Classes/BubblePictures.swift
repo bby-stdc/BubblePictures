@@ -160,8 +160,7 @@ extension BubblePictures: UICollectionViewDataSource {
 
 extension BubblePictures: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        return CGSize(width: collectionView.bounds.height, height: collectionView.bounds.height)
+        return CGSize(width: collectionView.bounds.height == 0.0 ? 47 : collectionView.bounds.height, height: collectionView.bounds.height == 0.0 ? 47 : collectionView.bounds.height)
     }
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {

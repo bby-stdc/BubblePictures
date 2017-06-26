@@ -18,6 +18,7 @@ class BPCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var viewBackgroundWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var lblNameCenterXConstraint: NSLayoutConstraint!
+    private let borderLayer: CAShapeLayer! = nil
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -40,11 +41,11 @@ class BPCollectionViewCell: UICollectionViewCell {
         
         configureImage(imageType: configFile.imageType, title: configFile.title, layoutConfigurator: layoutConfigurator)
         configureTitle(fullTitle: configFile.title, maxLenght: layoutConfigurator.maxCharactersForBubbleTitles, isTruncatedCell: isTruncatedCell)
-        configureLayout(layoutConfigurator: layoutConfigurator)
+        configureLayout(borderColor: configFile.borderColor)
         
-        viewWhiteBorders.layer.borderWidth = layoutConfigurator.widthForBubbleBorders
         viewBackgroundWidthConstraint.constant = layoutConfigurator.widthForBubbleBorders * -2
         lblNameCenterXConstraint.constant = isTruncatedCell ? -2 : -4
+        
     }
     
     private func configureImage(imageType: BPImageType, title: String, layoutConfigurator: BPLayoutConfigurator) {
@@ -62,15 +63,53 @@ class BPCollectionViewCell: UICollectionViewCell {
         imgBackground.contentMode = layoutConfigurator.bubbleImageContentMode
     }
     
-    private func configureLayout(layoutConfigurator: BPLayoutConfigurator) {
-        viewWhiteBorders.layer.borderColor = layoutConfigurator.colorForBubbleBorders.cgColor
-        lblName.font = layoutConfigurator.fontForBubbleTitles
-        lblName.textColor = layoutConfigurator.colorForBubbleTitles
+    private func configureLayout(borderColor: UIColor) {
+        
+        func animateCircle(duration: TimeInterval, circleLayer: CAShapeLayer) {
+            // We want to animate the strokeEnd property of the circleLayer
+            let animation = CABasicAnimation(keyPath: "strokeEnd")
+            
+            // Set the animation duration appropriately
+            animation.duration = duration
+            
+            // Animate from 0 (no circle) to 1 (full circle)
+            animation.fromValue = 0
+            animation.toValue = 1
+            
+            // Do a linear animation (i.e. the speed of the animation stays the same)
+            animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+            
+            // Set the circleLayer's strokeEnd property to 1.0 now so that it's the
+            // right value when the animation ends.
+            circleLayer.strokeEnd = 1.0
+            
+            // Do the actual animation
+            circleLayer.add(animation, forKey: "animateCircle")
+        }
+        
+        func addBorderLayer(borderCGColor: CGColor) {
+            let circlePath = UIBezierPath(arcCenter: CGPoint(x: frame.size.width / 2.0, y: frame.size.height / 2.0), radius: (frame.size.width - 4)/2, startAngle: 0.0, endAngle: CGFloat(M_PI * 2.0), clockwise: true)
+            
+            let circleLayer = CAShapeLayer()
+            circleLayer.path = circlePath.cgPath
+            circleLayer.fillColor = UIColor.clear.cgColor
+            circleLayer.strokeColor = borderCGColor
+            circleLayer.lineWidth = 2.0;
+            
+            circleLayer.strokeEnd = 0.0
+            animateCircle(duration: 2.0, circleLayer: circleLayer)
+            layer.addSublayer(circleLayer)
+        }
+        guard let existingBorder = borderLayer, existingBorder.fillColor != borderColor.cgColor else {
+            addBorderLayer(borderCGColor: borderColor.cgColor)
+            return
+        }
+        addBorderLayer(borderCGColor: borderColor.cgColor)
     }
     
     private func configureTitle(fullTitle: String, maxLenght: Int, isTruncatedCell: Bool) {
         var name = ""
-        defer { lblName.text = name }
+        defer { lblName.text = isTruncatedCell ? fullTitle : "" }
         
         if isTruncatedCell {
             name = fullTitle

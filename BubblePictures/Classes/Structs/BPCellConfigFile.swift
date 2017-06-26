@@ -11,9 +11,11 @@ import UIKit
 public struct BPCellConfigFile {
     var imageType: BPImageType
     var title: String
+    var borderColor: UIColor
     
-    public init(imageType: BPImageType, title: String) {
+    public init(imageType: BPImageType, title: String, borderColor: UIColor) {
         self.imageType = imageType
         self.title = title
+        self.borderColor = borderColor
     }
 }
