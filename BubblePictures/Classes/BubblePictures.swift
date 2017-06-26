@@ -71,7 +71,7 @@ public class BubblePictures: NSObject {
                 let remainingCells = (configFiles.count + 1) - maxNumberOfBubbles
                 let truncatedCell = BPCellConfigFile(
                     imageType: BPImageType.color(layoutConfigurator.backgroundColorForTruncatedBubble),
-                    title: "+\(layoutConfigurator.numberForTruncatedCell ?? remainingCells)"
+                    title: "+\(layoutConfigurator.numberForTruncatedCell ?? remainingCells)", borderColor: configFile.borderColor
                 )
                 configFilesTruncated.append(truncatedCell)
                 break

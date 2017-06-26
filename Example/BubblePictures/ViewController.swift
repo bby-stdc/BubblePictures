@@ -37,40 +37,40 @@ class ViewController: UIViewController {
         return [
             BPCellConfigFile(
                 imageType: BPImageType.URL(URL(string: "https://scontent.xx.fbcdn.net/v/t1.0-9/1069929_10200705658781699_1722535463_n.jpg?oh=91653a35620fd278ce2b7a7d026cdf2e&oe=5921B22D")!),
-                title: "Lorena"),
+                title: "Lorena", borderColor: UIColor.red),
             BPCellConfigFile(
                 imageType: BPImageType.URL(URL(string: "https://scontent.xx.fbcdn.net/v/t1.0-9/1069929_10200705658781699_1722535463_n.jpg?oh=91653a35620fd278ce2b7a7d026cdf2e&oe=5921B22D")!),
-                title: "Lorena Rodriguez"),
+                title: "Lorena Rodriguez", borderColor: UIColor.red),
             BPCellConfigFile(
                 imageType: BPImageType.URL(URL(string: "https://scontent.xx.fbcdn.net/v/t1.0-9/1069929_10200705658781699_1722535463_n.jpg?oh=91653a35620fd278ce2b7a7d026cdf2e&oe=5921B22D")!),
-                title: ""),
+                title: "", borderColor: UIColor.red),
             BPCellConfigFile(
                 imageType: BPImageType.URL(URL(string: "https://scontent.xx.fbcdn.net/v/t1.0-9/1069929_10200705658781699_1722535463_n.jpg?oh=91653a35620fd278ce2b7a7d026cdf2e&oe=5921B22D")!),
-                title: "Jaime Lanisky Patricio"),
+                title: "Jaime Lanisky Patricio", borderColor: UIColor.red),
             BPCellConfigFile(
                 imageType: BPImageType.URL(URL(string: "https://scontent.xx.fbcdn.net/v/t1.0-9/1069929_10200705658781699_1722535463_n.jpg?oh=91653a35620fd278ce2b7a7d026cdf2e&oe=5921B22D")!),
-                title: "Pocho Copernico zapallo colorin"),
+                title: "Pocho Copernico zapallo colorin", borderColor: UIColor.red),
             BPCellConfigFile(
                 imageType: BPImageType.URL(URL(string: "https://scontent.xx.fbcdn.net/v/t1.0-9/1069929_10200705658781699_1722535463_n.jpg?oh=91653a35620fd278ce2b7a7d026cdf2e&oe=5921B22D")!),
-                title: "Pocho Copernico zapallo colorin"),
+                title: "Pocho Copernico zapallo colorin", borderColor: UIColor.red),
             BPCellConfigFile(
                 imageType: BPImageType.URL(URL(string: "https://scontent.xx.fbcdn.net/v/t1.0-9/1069929_10200705658781699_1722535463_n.jpg?oh=91653a35620fd278ce2b7a7d026cdf2e&oe=5921B22D")!),
-                title: "Lorena"),
+                title: "Lorena", borderColor: UIColor.red),
             BPCellConfigFile(
                 imageType: BPImageType.URL(URL(string: "https://scontent.xx.fbcdn.net/v/t1.0-9/1069929_10200705658781699_1722535463_n.jpg?oh=91653a35620fd278ce2b7a7d026cdf2e&oe=5921B22D")!),
-                title: "Lorena Rodriguez"),
+                title: "Lorena Rodriguez", borderColor: UIColor.red),
             BPCellConfigFile(
                 imageType: BPImageType.URL(URL(string: "https://scontent.xx.fbcdn.net/v/t1.0-9/1069929_10200705658781699_1722535463_n.jpg?oh=91653a35620fd278ce2b7a7d026cdf2e&oe=5921B22D")!),
-                title: ""),
+                title: "", borderColor: UIColor.red),
             BPCellConfigFile(
                 imageType: BPImageType.URL(URL(string: "https://scontent.xx.fbcdn.net/v/t1.0-9/1069929_10200705658781699_1722535463_n.jpg?oh=91653a35620fd278ce2b7a7d026cdf2e&oe=5921B22D")!),
-                title: "Jaime Lanisky Patricio"),
+                title: "Jaime Lanisky Patricio", borderColor: UIColor.red),
             BPCellConfigFile(
                 imageType: BPImageType.URL(URL(string: "https://scontent.xx.fbcdn.net/v/t1.0-9/1069929_10200705658781699_1722535463_n.jpg?oh=91653a35620fd278ce2b7a7d026cdf2e&oe=5921B22D")!),
-                title: "Pocho Copernico zapallo colorin"),
+                title: "Pocho Copernico zapallo colorin", borderColor: UIColor.red),
             BPCellConfigFile(
                 imageType: BPImageType.URL(URL(string: "https://scontent.xx.fbcdn.net/v/t1.0-9/1069929_10200705658781699_1722535463_n.jpg?oh=91653a35620fd278ce2b7a7d026cdf2e&oe=5921B22D")!),
-                title: "Pocho Copernico zapallo colorin")
+                title: "Pocho Copernico zapallo colorin", borderColor: UIColor.red)
         ]
     }
 }
